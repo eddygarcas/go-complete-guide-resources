@@ -1,3 +1,3 @@
-module example.com/12-new-starting-project
+module example.com/notes-app
 
-go 1.21.2
+go 1.23.2
