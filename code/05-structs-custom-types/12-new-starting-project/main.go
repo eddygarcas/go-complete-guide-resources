@@ -9,6 +9,20 @@ import (
   "strings"
 )
 
+type saver interface {
+  Save() error
+}
+
+type displayer interface {
+  Display()
+}
+
+type outputter interface {
+  saver
+  displayer
+}
+
+
 func main() {
 	title := getUserInput("Note title:")
 	content := getUserInput("Note content:")
@@ -26,24 +40,33 @@ func main() {
 		return
 	}
 
-  todo.Display()
-  err = todo.Save()
+  outputData(todo)
+  outputData(userNote)
 
-  if err != nil {
-    fmt.Println("Error saving todo")
-    return
-  }
-  fmt.Println("Todo saved")
-
-	userNote.Display()
-  err = userNote.Save()
-  if err != nil {
-    fmt.Println("Error saving note")
-    return
-  }
-  fmt.Println("Note saved")
+  return
 }
 
+func outputData(data outputter) error{
+  data.Display()
+  err := saveData(data)
+  if err != nil {
+    fmt.Println("Error saving data")
+    return err
+  }
+  fmt.Println("Data saved")
+  return nil
+}
+
+
+func saveData(s saver) error {
+  err := s.Save()
+  if err != nil {
+  fmt.Println("Error saving data")
+    return err
+  }
+  fmt.Println("Data saved")
+  return nil
+}
 
 func getUserInput(prompt string) string {
 	fmt.Printf("%v ",prompt)
