@@ -1,6 +1,40 @@
 package main
 
+import (
+	"fmt"
+	"slices"
+)
+
+type Product struct {
+	title string
+	id    string
+	price float64
+}
+
 func main() {
+	hobbies := [3]string{"Surfing", "Coding", "Traveliing"}
+	fmt.Println(hobbies)
+	fmt.Println(hobbies[0])
+	fmt.Println(hobbies[1], hobbies[2])
+
+	newSlice := hobbies[0:2]
+	fmt.Println(newSlice)
+
+	products := []Product{
+		{
+			title: "furst",
+			id:    "1",
+			price: 4.56,
+		},
+		{
+			title: "gurst",
+			id:    "2",
+			price: 5.53,
+		},
+	}
+	products = append(products, Product{"furst", "3", 6.44})
+	products = slices.Delete(products, 2, len(products))
+	fmt.Println(products)
 
 }
 
