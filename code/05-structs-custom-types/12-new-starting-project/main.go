@@ -45,6 +45,14 @@ func main() {
 
 	outputData(todo)
 	outputData(userNote)
+
+	result := add(1, 2)
+	fmt.Printf("Sum %v", result)
+}
+
+// Generic types
+func add[T int | float64 | string](a, b T) T {
+	return a + b
 }
 
 func printSomething(value interface{}) {
