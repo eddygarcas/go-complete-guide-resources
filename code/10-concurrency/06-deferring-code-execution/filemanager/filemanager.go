@@ -48,6 +48,7 @@ func (fm FileManager) WriteResult(data interface{}) error {
 		return errors.New("Failed to create file.")
 	}
 
+	// The file.Close() method would be executed one the rest of the method execution completes.
 	defer file.Close()
 
 	time.Sleep(3 * time.Second)
