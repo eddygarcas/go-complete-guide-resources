@@ -1,1 +1,17 @@
 .DS_Store
+/code/03-working-with-packages/04-third-party-packages/go.sum
+/code/11-rest-api/02-first-route-request-handler/go.sum
+/code/11-rest-api/03-testing-requests-fixing-post-request/go.sum
+/code/11-rest-api/04-getting-events-from-database/go.sum
+/code/11-rest-api/05-get-single-event/go.sum
+/code/11-rest-api/06-refactoring-code/go.sum
+/code/11-rest-api/07-updating-events/go.sum
+/code/11-rest-api/08-deleting-events/go.sum
+/code/11-rest-api/09-adding-user-signup/go.sum
+/code/11-rest-api/10-hashing-passwords/go.sum
+/code/11-rest-api/11-generating-jwt/go.sum
+/code/11-rest-api/12-adding-token-verification/go.sum
+/code/11-rest-api/13-enhancing-auth-middleware/go.sum
+/code/11-rest-api/14-adding-authorization/go.sum
+/code/11-rest-api/15-testing-fixing-register-route/go.sum
+/code/11-rest-api/16-cancelling-registrations/go.sum
