@@ -16,6 +16,10 @@ func (e Employee) Display(formatName func(element Employee) string) {
 	fmt.Printf("Employee name: %v", formatName(e))
 }
 
+func (e Employee) Format() {
+	e.Display(func(element Employee) string { return element.FirstName + " and " + element.Surname })
+}
+
 func New(firstName, surName string) (Employee, error) {
 	return Employee{
 		FirstName: firstName,

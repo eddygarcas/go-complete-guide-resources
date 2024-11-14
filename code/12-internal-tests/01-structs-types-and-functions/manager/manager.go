@@ -13,6 +13,10 @@ func (e Manager) Display(formatName func(element Manager) string) {
 	fmt.Printf("Manager name: %v\n", formatName(e))
 }
 
+func (e Manager) Format() {
+	e.Display(func(element Manager) string { return element.FirstName + " " + element.Surname })
+}
+
 func New(firstName, surname string) (Manager, error) {
 	return Manager{
 		FirstName: firstName,
