@@ -25,7 +25,7 @@ func VerifyToken(token string) (int64, error) {
 		_, ok := token.Method.(*jwt.SigningMethodHMAC)
 
 		if !ok {
-			return nil, errors.New("Unexpected signing method")
+			return nil, errors.New("unexpected signing method")
 		}
 
 		return []byte(secretKey), nil
@@ -33,22 +33,23 @@ func VerifyToken(token string) (int64, error) {
 
 	if err != nil {
 		fmt.Println("Could not parse token")
-		return 0, errors.New("Could not parse token.")
+		return 0, errors.New("could not parse token")
 	}
 
 	tokenIsValid := parsedToken.Valid
 
 	if !tokenIsValid {
-		return 0, errors.New("Invalid token!")
+		return 0, errors.New("invalid token")
 	}
 
 	claims, ok := parsedToken.Claims.(jwt.MapClaims)
 
 	if !ok {
-		return 0, errors.New("Invalid token claims.")
+		return 0, errors.New("invalid token claims")
 	}
 
 	// email := claims["email"].(string)
+	// This is called type assertion (checking). It asserts that the value stored in the claims["userId"] is of type float64.
 	userId := int64(claims["userId"].(float64))
 	return userId, nil
 }
